@@ -1,0 +1,302 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: "Poppins", sans-serif;
+}
+
+.homePage {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e1e5ec;
+  color: #5e5e5e;
+  position: relative;
+
+  &__about {
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline;
+    animation: fadeIn 0.75s ease-in-out;
+  }
+
+  &__arrows {
+    animation: fadeIn 0.75s ease-in-out;
+  }
+
+  &__heading {
+    font-weight: lighter;
+    font-size: 4rem;
+    position: absolute;
+    width: 70%;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--div {
+      animation: headingFadeInRight 0.7s ease-in-out;
+    }
+    &--margin {
+      margin-bottom: 10px;
+    }
+    &--flex {
+      font-weight: lighter;
+      font-size: 4rem;
+      margin-top: auto;
+    }
+  }
+
+  &__errorHeading {
+    font-weight: bolder;
+    font-size: 2rem;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__errorMan {
+    position: absolute;
+    left: 20%;
+    top: 35%;
+    height: 17rem;
+  }
+  &__errorReturned {
+    position: absolute;
+    font-size: 1rem;
+    left: 54%;
+    top: 35%;
+  }
+  &__errorStatus {
+    font-size: 10rem;
+    position: absolute;
+    left: 48%;
+    top: 35%;
+    color: #e1e5ec;
+    text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.1),
+      -8px -8px 12px rgba(241, 241, 241, 0.774);
+    caret-color: #262626;
+    font-weight: bolder;
+  }
+  &__customFileInput {
+    background-color: #e1e5ec;
+    position: absolute;
+    left: 45%;
+    top: 55%;
+    padding: 1%;
+    border-radius: 25px;
+    transform: translate(-50%, -50%);
+    box-shadow: 4px 4px 8px #8d8282, -4px -4px 8px rgb(241, 241, 241);
+    transition: all 0.7s ease-in-out;
+  }
+
+  &__selectedFile {
+    background-color: #e1e5ec;
+    position: absolute;
+    left: 42%;
+    top: 55%;
+    padding: 1%;
+    border-radius: 25px;
+    transform: translate(-50%, -50%);
+    box-shadow: inset -4px -4px 12px #aaa5a5, 4px 4px 8px rgb(241, 241, 241);
+    transition: all 0.2s;
+    animation: fadeInRight 0.7s ease-in-out;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__sendButton--button {
+    background-color: #e1e5ec;
+    position: absolute;
+    left: 53%;
+    top: 55%;
+    padding: 1%;
+    width: 5%;
+    border-radius: 25px;
+    transform: translate(-50%, -50%);
+    box-shadow: 4px 4px 8px #8d8282, -4px -4px 8px rgb(241, 241, 241);
+    transition: all 0.2s;
+    animation: fadeInRightMore 0.7s ease-in-out;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__tableContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    animation: fadeIn 0.75s ease-in-out;
+    // padding: 10px;
+  }
+
+  &__tableData {
+    // position: absolute;
+    // left: 50%;
+    // top: 55%;
+    // transform: translate(-50%, -50%);
+    width: 90%;
+    margin-bottom: auto;
+    border-collapse: collapse;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 4px 4px 8px #979393, -6px -6px 12px rgb(241, 241, 241);
+    tr {
+      border-bottom: 1px solid #cad1dd;
+      padding: 20px;
+    }
+    tr:nth-last-child(1) {
+      border: none;
+    }
+    th {
+      padding: 20px;
+      text-align: left;
+    }
+    td {
+      padding: 20px;
+      text-align: left;
+    }
+  }
+}
+@keyframes headingFadeInRight {
+  0% {
+    opacity: 0;
+    left: 35%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 50%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 35%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 41%;
+  }
+}
+
+@keyframes fadeInRightMore {
+  0% {
+    opacity: 0;
+    left: 40%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 48.5%;
+  }
+}
+
+.loaderWrapper {
+  width: fit-content;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.case__loading {
+  position: relative;
+  margin: auto;
+  text-align: center;
+}
+.big__circle {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 100% !important;
+  box-shadow: inset -4px -4px 8px 0px white, inset 4px 4px 8px 0px #ddd8d4;
+}
+
+.inner__circle {
+  z-index: 2;
+  position: absolute;
+  top: calc(50% - 35%);
+  left: calc(50% - 35%);
+  width: 70%;
+  height: 70%;
+  border-radius: 100% !important;
+  background: #f2f2f2;
+  box-shadow: -4px -4px 8px 0px white, 4px 4px 8px 0px #cecece,
+    inset 0px 0px 0px 0px white, inset 0px 0px 0px 0px #cecece;
+}
+
+.loader {
+  z-index: 1;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 105%;
+  height: 105%;
+}
+.loader svg {
+  width: 100%;
+  height: 100%;
+}
+
+// https://www.uplabs.com/posts/modern-google-loader-in-pure-css  VVVVVVVVV
+.circular {
+  height: 100%;
+  width: 100%;
+  animation: rotate 4s linear infinite;
+  transform-origin: center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: -2.5%;
+}
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  // stroke: #00e8aa;
+  animation: dash 3s ease-in-out infinite;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
