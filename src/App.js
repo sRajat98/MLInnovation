@@ -5,6 +5,7 @@ import { constants } from "./modules/constants";
 import arrowLeft from "./Images/arrow-left.svg";
 import arrowRight from "./Images/arrow-right.svg";
 import axios from "axios";
+import DialogBox from "./Components/DialogBox";
 
 function App() {
   const [isFilesHovered, setIsFilesHovered] = useState(false);
@@ -19,6 +20,9 @@ function App() {
   const [hasErrorOccured, setHasErrorOccured] = useState(false);
   const [isChooseFilesVisible, setIsChooseFilesVisible] = useState(false);
   const [error, setError] = useState(null);
+  const [isDialogVisible, setIsDialogVisible] = useState(false);
+  const [dialogText, setDialogText] = useState(null);
+
   const setFile = (event) => {
     const files = event.target.files;
     setFileSelected(files);
@@ -222,6 +226,12 @@ function App() {
         </div>
       ) : isTableVisible ? (
         <>
+          {isDialogVisible ? (
+            <DialogBox
+              text={dialogText}
+              setIsDialogVisible={setIsDialogVisible}
+            />
+          ) : null}
           <div className="homePage__tableContainer">
             <div className="homePage__heading--flex">
               <img
@@ -256,8 +266,54 @@ function App() {
               {tableBodyData
                 ? Object.values(tableBodyData).map((value) => (
                     <tr>
-                      <td>{value.NAME ? value.NAME : "NA"}</td>
-                      <td>{value.LOCATION ? value.LOCATION : "NA"}</td>
+                      <td>
+                        {value.NAME ? (
+                          value.NAME.length > 100 ? (
+                            <span href="#">
+                              {value.NAME.slice(0, 100)}{" "}
+                              <a
+                                href="#"
+                                onClick={() => {
+                                  setDialogText(value.NAME);
+                                  setIsDialogVisible(true);
+                                }}
+                                style={{ cursor: "pointer" }}
+                              >
+                                {" "}
+                                ...more
+                              </a>
+                            </span>
+                          ) : (
+                            value.NAME
+                          )
+                        ) : (
+                          "NA"
+                        )}
+                      </td>
+                      <td>
+                        {value.LOCATION ? (
+                          value.LOCATION.length > 100 ? (
+                            <span href="#">
+                              {value.LOCATION.slice(0, 100)}{" "}
+                              <a
+                                href="#"
+                                onClick={() => {
+                                  setDialogText(value.LOCATION);
+                                  setIsDialogVisible(true);
+                                }}
+                                style={{ cursor: "pointer" }}
+                              >
+                                {" "}
+                                ...more
+                              </a>
+                            </span>
+                          ) : (
+                            value.LOCATION
+                          )
+                        ) : (
+                          "NA"
+                        )}
+                      </td>
                       <td>
                         {value["EMAIL ADDRESS"] ? value["EMAIL ADDRESS"] : "NA"}
                       </td>
@@ -280,7 +336,30 @@ function App() {
                           ? value["YEARS OF EXPERIENCE"]
                           : "NA"}
                       </td>
-                      <td>{value.SKILLS ? value.SKILLS : "NA"}</td>
+                      <td style={{ width: "30%" }}>
+                        {value.SKILLS ? (
+                          value.SKILLS.length > 100 ? (
+                            <span href="#">
+                              {value.SKILLS.slice(0, 100)}{" "}
+                              <a
+                                href="#"
+                                onClick={() => {
+                                  setDialogText(value.SKILLS);
+                                  setIsDialogVisible(true);
+                                }}
+                                style={{ cursor: "pointer" }}
+                              >
+                                {" "}
+                                ...more
+                              </a>
+                            </span>
+                          ) : (
+                            value.SKILLS
+                          )
+                        ) : (
+                          "NA"
+                        )}
+                      </td>
                       <td>{value.DESIGNATION ? value.DESIGNATION : "NA"}</td>
                     </tr>
                   ))

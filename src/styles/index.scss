@@ -7,10 +7,18 @@
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  background: #e1e5ec no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .homePage {
   width: 100vw;
   height: 100vh;
-  background-color: #e1e5ec;
+  // background-color: #e1e5ec;
   color: #5e5e5e;
   position: relative;
 
@@ -149,10 +157,10 @@
     margin-bottom: auto;
     border-collapse: collapse;
     padding: 10px;
-    border-radius: 4px;
-    box-shadow: 4px 4px 8px #979393, -6px -6px 12px rgb(241, 241, 241);
+    border-radius: 12px;
+    box-shadow: 6px 6px 12px #adadadad, -6px -6px 12px rgb(245, 245, 245);
     tr {
-      border-bottom: 1px solid #cad1dd;
+      border-bottom: 1px solid #c1c7d1;
       padding: 20px;
     }
     tr:nth-last-child(1) {
@@ -164,7 +172,42 @@
     }
     td {
       padding: 20px;
-      text-align: left;
+      text-align: top;
+      max-width: 0;
+      height: 10px;
+      // text-overflow: ellipsis;
+      // white-space: nowrap;
+    }
+  }
+
+  &__dialogBoxBackground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #e1e5ecaf;
+  }
+
+  &__dialogBox {
+    position: absolute;
+    // width: 30%;
+    padding: 3rem;
+    // height: 30%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    background-color: #e1e5ec;
+    box-shadow: 6px 6px 12px #b1b0b0, -6px -6px 12px rgb(243, 243, 243);
+
+    &--closeButton {
+      position: absolute;
+      width: 5%;
+      text-align: center;
+      left: 93%;
+      top: 8%;
+      box-shadow: 2px 2px 4px #bbbbbb, -2px -2px 4px rgb(243, 243, 243);
+      border-radius: 4px;
+      cursor: pointer;
     }
   }
 }
